@@ -42,7 +42,7 @@
 ## 安装与启动
 
 ```powershell
-cd D:\Codex\Codex-Workspace\dsh-mobile
+cd dsh-mobile
 npm install
 npm start          # 或双击 start.cmd
 ```
