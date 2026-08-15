@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="DSH Mobile" />
+  <title>DSH Mobile</title>
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <!-- Login -->
+  <div id="login" class="screen hidden">
+    <div class="login-card">
+      <div class="login-logo">DSH<span>Mobile</span></div>
+      <p class="login-sub">手机远程控制你的电脑 Agent</p>
+      <input id="password" type="password" inputmode="text" autocomplete="current-password" placeholder="输入访问密码" />
+      <button id="login-btn" class="btn btn-primary btn-block">进入</button>
+      <p id="login-err" class="login-err"></p>
+    </div>
+  </div>
+
+  <!-- App -->
+  <div id="app" class="screen hidden">
+    <header id="topbar">
+      <button id="menu-btn" class="icon-btn" aria-label="会话列表">☰</button>
+      <div id="topbar-title" class="topbar-title">DSH Mobile</div>
+      <div class="topbar-right">
+        <span id="conn-dot" class="dot" title="连接状态"></span>
+        <button id="logout-btn" class="icon-btn" aria-label="退出">⏻</button>
+      </div>
+    </header>
+
+    <!-- Session list drawer -->
+    <div id="drawer-scrim" class="scrim hidden"></div>
+    <aside id="drawer" class="drawer">
+      <div class="drawer-head">
+        <span>会话</span>
+        <button id="new-chat-btn" class="btn btn-primary btn-sm">＋ 新任务</button>
+      </div>
+      <div id="session-list" class="session-list"></div>
+    </aside>
+
+    <!-- Chat -->
+    <main id="chat" class="chat"></main>
+
+    <!-- Templates sheet -->
+    <div id="tpl-scrim" class="scrim hidden"></div>
+    <div id="tpl-sheet" class="sheet">
+      <div class="sheet-head">
+        <span>快捷指令</span>
+        <button id="tpl-manage-btn" class="btn btn-ghost btn-sm">管理</button>
+      </div>
+      <div id="tpl-list" class="tpl-list"></div>
+      <div id="tpl-manage" class="tpl-manage hidden">
+        <textarea id="tpl-editor" rows="8" placeholder="每行一条快捷指令，保存后点击即可发送"></textarea>
+        <div class="sheet-actions">
+          <button id="tpl-save-btn" class="btn btn-primary">保存</button>
+          <button id="tpl-cancel-btn" class="btn btn-ghost">返回</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Composer -->
+    <footer id="composer">
+      <button id="tpl-btn" class="icon-btn" aria-label="快捷指令">⚡</button>
+      <button id="photo-btn" class="icon-btn" aria-label="拍照/相册">📷</button>
+      <input id="photo-input" type="file" accept="image/*" capture="environment" hidden />
+      <div id="composer-input-wrap">
+        <div id="image-previews" class="image-previews"></div>
+        <textarea id="input" rows="1" enterkeyhint="send" placeholder="给 agent 下指令…"></textarea>
+      </div>
+      <button id="voice-btn" class="icon-btn" aria-label="语音输入">🎤</button>
+      <button id="send-btn" class="btn btn-primary send-btn" aria-label="发送">↑</button>
+    </footer>
+
+    <!-- Question / approval modal -->
+    <div id="modal-scrim" class="scrim hidden"></div>
+    <div id="modal" class="modal">
+      <div id="modal-body"></div>
+    </div>
+
+    <!-- Completion toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <input id="hidden-file" type="file" accept="image/*" hidden />
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

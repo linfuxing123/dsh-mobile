@@ -1,0 +1,16 @@
+{
+  "name": "dsh-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Phone-first remote control for the DSH agent: chat + voice + photo + quick commands + completion notifications, reachable over Tailscale.",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "icons": "node scripts/make-icons.js"
+  },
+  "dependencies": {
+    "http-proxy": "^1.18.1",
+    "ws": "^8.18.0"
+  }
+}
